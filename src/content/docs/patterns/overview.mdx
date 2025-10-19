@@ -1,0 +1,25 @@
+---
+title: "Patterns"
+description: "Patterns are reusable pieces of code that serve as specific user interface elements or functions."
+---
+
+import { CardGrid } from "@astrojs/starlight/components";
+
+import ComponentCard from "../../../components/ComponentCard.astro";
+import bulk from "../../../assets/images/bulk.avif";
+import uploading from "../../../assets/images/uploading.avif";
+
+"Patterns are reusable pieces of code that serve as specific user interface elements or functions."
+
+<CardGrid>
+  <ComponentCard
+    image={bulk}
+    title="Bulk editing"
+    slug="/patterns/bulk"
+  />
+  <ComponentCard
+    image={uploading}
+    title="File uploading"
+    slug="/patterns/uploading"
+  />
+</CardGrid>
