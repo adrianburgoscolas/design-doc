@@ -1,0 +1,31 @@
+@layer base, starlight, theme, components, utilities;
+
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+
+.hero {
+  padding-top: 0;
+  padding-bottom: 3rem;
+
+  & h1 {
+    @apply text-gray-700;
+  }
+
+  & .tagline {
+    @apply text-gray-400 text-2xl;
+  }
+}
+
+.social-icons {
+  @apply text-gray-700 dark:text-white;
+
+  & svg {
+    @apply fill-gray-700 dark:fill-white;
+  }
+}
+
+.site-title {
+  @apply text-gray-700 dark:text-gray-400;
+}

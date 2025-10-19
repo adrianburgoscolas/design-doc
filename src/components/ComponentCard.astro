@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+  title: string;
+  slug: string;
+  animate: boolean;
+}
+
+const { image, title, slug, animate = true } = Astro.props;
+---
+
+<a
+  class="no-underline"
+  href=`${slug}`
+>
+  <Image
+    class:list={[
+      "w-full rounded-3xl",
+      {
+        "hover:shadow-lg hover:scale-101 transition-all duration-300": animate,
+      },
+    ]}
+    src={image}
+    alt="components"
+  />
+  <div class="text-gray-700 dark:text-gray-500 font-semibold text-3xl">
+    {title}
+  </div>
+</a>
