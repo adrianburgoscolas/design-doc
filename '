@@ -4,33 +4,9 @@
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
 
-.pagination-links>a {
-  @apply shadow-none hover:border-gray-400;
-}
-
-header {
-  @apply pb-0 bg-white/0 border-none;
-
-  &>div {
-    @apply px-6 container rounded-full mx-auto bg-white/40 border border-white/40 outline outline-black/7 backdrop-blur-sm;
-  }
-
-  & div {
-    & .sl-flex:not(.title-wrapper) {
-      @apply justify-end;
-    }
-  }
-}
-
-nav {
-  @apply mt-4 rounded-full mx-4;
-}
 
 .right-sidebar,
-.content-panel,
-.sidebar-pane,
-summary,
-nav {
+.content-panel {
   border: none;
 }
 
