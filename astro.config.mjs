@@ -13,11 +13,6 @@ export default defineConfig({
         // Path to your Tailwind base styles:
         './src/styles/global.css',
       ],
-      social: [
-        { icon: 'x.com', label: 'X', href: 'https://x.com' },
-        { icon: 'facebook', label: 'Facebook', href: 'https://facebook.com' },
-        { icon: 'instagram', label: 'Instagram', href: 'https://instagram.com' },
-      ],
       sidebar: [
         {
           label: 'Components',
