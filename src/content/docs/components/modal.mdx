@@ -23,6 +23,12 @@ import footnote from "../../../assets/images/footnote.svg";
 import desktop from "../../../assets/images/desktop.webp";
 import mobile from "../../../assets/images/mobile.webp";
 import buttons_do from "../../../assets/images/buttons_do.svg";
+import modal_do from "../../../assets/images/modal_do.svg";
+import modal_dont from "../../../assets/images/modal_dont.svg";
+import confirm_do from "../../../assets/images/confirm_do.webp";
+import confirm_dont from "../../../assets/images/confirm_dont.webp";
+import above_do from "../../../assets/images/above_do.webp";
+import above_dont from "../../../assets/images/above_dont.webp";
 import buttons_dont from "../../../assets/images/buttons_dont.svg";
 import { Aside } from "@astrojs/starlight/components";
 
@@ -52,21 +58,21 @@ The anatomy of the “Modal” component includes the following essential elemen
 
 <br />
 
-<ul>
-  <li class="">
+<ol class="custom-list">
+  <li class="list-image-[url(/list/list1.svg)]">
     <h4>Container</h4>
     <p>
       The outer structure that wraps and organizes all internal elements of the
       modal. It manages layout, spacing, and overall alignment.
     </p>
   </li>
-  <li class="">
+  <li class="list-image-[url(/list/list2.svg)]">
     <h4>Header (optional)</h4>
     <p>
       The header is an optional section of the modal that provides context and
       helps communicate its purpose. It can contain the following elements:
     </p>
-    <ul>
+    <ul class="list-image-none list-disc">
       <li>
         Title: The main heading of the modal. It gives users a clear indication
         of the modal’s purpose or the task to be completed.
@@ -78,14 +84,14 @@ The anatomy of the “Modal” component includes the following essential elemen
       </li>
     </ul>
   </li>
-  <li class="">
+  <li class="list-image-[url(/list/list3.svg)]">
     <h4>Close button (optional)</h4>
     <p>
       A dedicated action, placed at the top-right corner, that allows users to
       dismiss the modal quickly and accessibly.
     </p>
   </li>
-  <li class="">
+  <li class="list-image-[url(/list/list4.svg)]">
     <h4>Content area</h4>
     <p>
       The central and flexible body of the modal. It displays the main
@@ -93,7 +99,7 @@ The anatomy of the “Modal” component includes the following essential elemen
       the user’s task. This is the functional core of the component.
     </p>
   </li>
-  <li class="">
+  <li class="list-image-[url(/list/list5.svg)]">
     <h4>Action group (optional)</h4>
     <p>
       The bottom section of the modal that groups one or more actions (e.g.,
@@ -101,7 +107,7 @@ The anatomy of the “Modal” component includes the following essential elemen
       for the user and supports task completion.
     </p>
   </li>
-  <li class="">
+  <li class="list-image-[url(/list/list6.svg)]">
     <h4>Footnote (optional)</h4>
     <p>
       The footnote is an optional text area placed at the bottom of the modal,
@@ -110,14 +116,7 @@ The anatomy of the “Modal” component includes the following essential elemen
       complement the main content.
     </p>
   </li>
-  <li class="">
-    <h4>Container</h4>
-    <p>
-      The outer structure that wraps and organizes all internal elements of the
-      modal. It manages layout, spacing, and overall alignment.
-    </p>
-  </li>
-</ul>
+</ol>
 <ImageModal
   src={anatomy}
   alt="Anatomy of 'Modal' component"
@@ -390,33 +389,30 @@ Follow these guidelines to ensure consistent, clear, and accessible usage of the
   />
   <PracticeCard
     canDo
-    image={buttons_do}
-    text="Use a clear hierarchy of action buttons. Always define a single primary action for the most important task, supported by secondary and tertiary actions when needed."
+    image={modal_do}
+    text="On small breakpoints and mobile devices, modals should always slide up from the bottom of the screen. This placement ensures clarity, accessibility, and consistency with mobile interaction patterns."
   />
   <PracticeCard
-    image={buttons_dont}
-    text="Do not place two primary buttons side by side. This breaks the visual hierarchy, confuses users about which action is most important, and creates unnecessary competition between actions.
-"
-  />
-  <PracticeCard
-    canDo
-    image={buttons_do}
-    text="Use a clear hierarchy of action buttons. Always define a single primary action for the most important task, supported by secondary and tertiary actions when needed."
-  />
-  <PracticeCard
-    image={buttons_dont}
-    text="Do not place two primary buttons side by side. This breaks the visual hierarchy, confuses users about which action is most important, and creates unnecessary competition between actions.
-"
+    image={modal_dont}
+    text="Don’t display modals as small floating dialogs on mobile breakpoints. This breaks the expected behavior, reduces usability, and makes the content harder to interact with on limited screen space."
   />
   <PracticeCard
     canDo
-    image={buttons_do}
-    text="Use a clear hierarchy of action buttons. Always define a single primary action for the most important task, supported by secondary and tertiary actions when needed."
+    image={confirm_do}
+    text="Do always center-align alert and confirm modals."
   />
   <PracticeCard
-    image={buttons_dont}
-    text="Do not place two primary buttons side by side. This breaks the visual hierarchy, confuses users about which action is most important, and creates unnecessary competition between actions.
-"
+    image={confirm_dont}
+    text="Don’t bottom-align alert and confirm dialogs."
+  />
+  <PracticeCard
+    canDo
+    image={above_do}
+    text="Modals lie above all main page content."
+  />
+  <PracticeCard
+    image={above_dont}
+    text="Modals should not trigger other modals. This quickly becomes inaccessible and confusing. Links within modals should open in a new tab or dismiss the modal before navigating."
   />
 </CardGrid>
 <br />
@@ -426,7 +422,7 @@ Follow these guidelines to ensure consistent, clear, and accessible usage of the
 
 ## UX tips
 
-<div class="bg-[#bdf4e9] px-8 py-4">
+<div class="rounded-3xl bg-[#bdf4e9] dark:bg-[#13211e] p-8">
   <ol>
     <li>
       <span class="font-bold">Clarity in Purpose:</span> Use modals to capture
@@ -435,46 +431,44 @@ Follow these guidelines to ensure consistent, clear, and accessible usage of the
       the purpose.
     </li>
     <li>
-      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
+      <span class="font-bold">Concise and Relevant Content:</span> Keep the
       content within the modal focused and concise. Avoid overloading the user
       with too much information. The content area should only contain essential
       information or interactive elements needed for the user to complete the
       task.
     </li>
     <li>
-      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
-      content within the modal focused and concise. Avoid overloading the user
-      with too much information. The content area should only contain essential
-      information or interactive elements needed for the user to complete the
-      task.
+      <span class="font-bold">Accessible and Intuitive Design:</span> Ensure the
+      modal is accessible to all users, including those using screen readers.
+      This involves using semantic HTML elements and ARIA roles appropriately.
+      The design should be intuitive, with a clear distinction between different
+      sections like the header, content area, and footer.
     </li>
     <li>
-      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
-      content within the modal focused and concise. Avoid overloading the user
-      with too much information. The content area should only contain essential
-      information or interactive elements needed for the user to complete the
-      task.
+      <span class="font-bold">Close Options:</span> Provide a clear way for
+      users to dismiss the modal, either through a close button in the header or
+      an action button in the footer. Additionally, clicking outside the modal
+      or pressing the ‘Esc’ key should close the modal.
     </li>
     <li>
-      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
-      content within the modal focused and concise. Avoid overloading the user
-      with too much information. The content area should only contain essential
-      information or interactive elements needed for the user to complete the
-      task.
+      <span class="font-bold">Focus Management:</span> When a modal is opened,
+      focus should automatically move to the first interactive element within
+      the modal. Upon closing the modal, focus should return to the element that
+      triggered the modal. This ensures a seamless and accessible user
+      experience.
     </li>
     <li>
-      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
-      content within the modal focused and concise. Avoid overloading the user
-      with too much information. The content area should only contain essential
-      information or interactive elements needed for the user to complete the
-      task.
+      <span class="font-bold">Responsive Design:</span> Modals should be
+      responsive and look good on all screen sizes. Ensure that the modal adapts
+      to different devices, providing a user-friendly experience on both desktop
+      and mobile platforms.{" "}
     </li>
     <li>
-      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
-      content within the modal focused and concise. Avoid overloading the user
-      with too much information. The content area should only contain essential
-      information or interactive elements needed for the user to complete the
-      task.
+      <span class="font-bold">Use of Action Blocks:</span> Utilize the action
+      block in the footer effectively. Include primary actions (e.g., ‘Accept’,
+      ‘Submit’) and secondary actions (e.g., ‘Cancel’) to provide clear options
+      for users. Ensure buttons are appropriately labeled to reflect their
+      functions.{" "}
     </li>
   </ol>
   <p>
