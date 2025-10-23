@@ -18,7 +18,7 @@ header {
   @apply pb-0 bg-white/0 border-none;
 
   &>div {
-    @apply px-3 py-7 container rounded-full mx-auto bg-white/40 border border-white/40 outline outline-black/7 backdrop-blur-sm;
+    @apply px-3 py-7 container rounded-full mx-auto bg-white/40 border border-white/40 outline outline-black/7 backdrop-blur-sm dark:bg-[#444444]/30 dark:border-[#F0EFED33]/60;
   }
 
   & div {
@@ -36,8 +36,12 @@ nav {
   @apply mt-5 rounded-full mx-4;
 }
 
-.sidebar-pane {
-  background-color: transparent;
+@media (width >=64rem
+  /* 1024px */
+) {
+  .sidebar-pane {
+    background-color: transparent;
+  }
 }
 
 .right-sidebar,
@@ -70,5 +74,13 @@ nav {
 }
 
 .site-title {
+  & img {
+    @apply rounded-full dark:border-2 dark:border-white dark:bg-white;
+  }
+
   @apply text-gray-700 dark:text-gray-400;
+}
+
+.css-var {
+  @apply border border-gray-400 px-2 py-1 rounded-md bg-zinc-50 dark:bg-zinc-800;
 }
