@@ -6,6 +6,8 @@
 
 :root {
   --sl-color-accent: #024AD8;
+  scrollbar-gutter: stable;
+
 }
 
 .pagination-links>a {
@@ -20,14 +22,22 @@ header {
   }
 
   & div {
-    & .sl-flex:not(.title-wrapper) {
+    & .sl-flex:not(.title-wrapper):not(.dialog-frame) {
       @apply justify-end;
     }
+  }
+
+  & dialog {
+    @apply border border-white/40 bg-[#aaaaaa]/40 backdrop-blur-sm rounded-3xl;
   }
 }
 
 nav {
   @apply mt-5 rounded-full mx-4;
+}
+
+.sidebar-pane {
+  background-color: transparent;
 }
 
 .right-sidebar,
