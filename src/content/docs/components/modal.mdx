@@ -1,0 +1,485 @@
+---
+title: "Modal"
+description: "A modal is an interactive window that appears on screen and blurs the background screen to focus the user’s attention on the modal’s action. For example, a modal can ask the user to confirm or cancel a choice."
+---
+
+import { CardGrid } from "@astrojs/starlight/components";
+import ComponentCard from "../../../components/ComponentCard.astro";
+import PracticeCard from "../../../components/PracticeCard.astro";
+import ImageModal from "../../../components/ImageModal.astro";
+import PropertyCard from "../../../components/PropertyCard.astro";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import modal from "../../../assets/images/modal.webp";
+import anatomy from "../../../assets/images/anatomy.webp";
+import spacing from "../../../assets/images/spacing.svg";
+import sizing from "../../../assets/images/sizing.svg";
+import radius from "../../../assets/images/border_radius.svg";
+import elevation from "../../../assets/images/elevations.svg";
+import subtitle from "../../../assets/images/subtitle.svg";
+import header from "../../../assets/images/header.svg";
+import close_button from "../../../assets/images/close_button.svg";
+import action_group from "../../../assets/images/action_group.svg";
+import footnote from "../../../assets/images/footnote.svg";
+import desktop from "../../../assets/images/desktop.webp";
+import mobile from "../../../assets/images/mobile.webp";
+import buttons_do from "../../../assets/images/buttons_do.svg";
+import buttons_dont from "../../../assets/images/buttons_dont.svg";
+import { Aside } from "@astrojs/starlight/components";
+
+A modal is an interactive window that appears on screen and blurs the background screen to focus the user’s attention on the modal’s action. For example, a modal can ask the user to confirm or cancel a choice.
+
+<br />
+<br />
+<ImageModal
+  src={modal}
+  alt="Modal"
+/>
+
+<br />
+<br />
+The **_‘Modal’_** component is a pop-up window that overlays the main content of
+a user interface, dimming the rest of the screen to focus the user’s attention
+on the information or actions presented within it. Modals are used for
+interactions that require the user’s complete focus, such as confirmation forms,
+critical alerts, or the collection of specific data. Typically, modals include a
+header, a main content area, and a footer with action buttons, creating a
+self-contained and focused environment that requires user interaction before
+returning to the main application functionality.
+
+## Anatomy
+
+The anatomy of the “Modal” component includes the following essential elements:
+
+<br />
+
+<ul>
+  <li class="">
+    <h4>Container</h4>
+    <p>
+      The outer structure that wraps and organizes all internal elements of the
+      modal. It manages layout, spacing, and overall alignment.
+    </p>
+  </li>
+  <li class="">
+    <h4>Header (optional)</h4>
+    <p>
+      The header is an optional section of the modal that provides context and
+      helps communicate its purpose. It can contain the following elements:
+    </p>
+    <ul>
+      <li>
+        Title: The main heading of the modal. It gives users a clear indication
+        of the modal’s purpose or the task to be completed.
+      </li>
+      <li>
+        Subtitle (optional): A secondary line of text placed below the title. It
+        provides additional context or clarification when needed, but can be
+        omitted if the title alone is sufficient.
+      </li>
+    </ul>
+  </li>
+  <li class="">
+    <h4>Close button (optional)</h4>
+    <p>
+      A dedicated action, placed at the top-right corner, that allows users to
+      dismiss the modal quickly and accessibly.
+    </p>
+  </li>
+  <li class="">
+    <h4>Content area</h4>
+    <p>
+      The central and flexible body of the modal. It displays the main
+      information, interactive controls, or form elements required to complete
+      the user’s task. This is the functional core of the component.
+    </p>
+  </li>
+  <li class="">
+    <h4>Action group (optional)</h4>
+    <p>
+      The bottom section of the modal that groups one or more actions (e.g.,
+      primary, secondary, or link actions). It provides clear decision points
+      for the user and supports task completion.
+    </p>
+  </li>
+  <li class="">
+    <h4>Footnote (optional)</h4>
+    <p>
+      The footnote is an optional text area placed at the bottom of the modal,
+      below the footer actions. It is typically used for supporting information
+      such as legal disclaimers, additional guidance, or contextual notes that
+      complement the main content.
+    </p>
+  </li>
+  <li class="">
+    <h4>Container</h4>
+    <p>
+      The outer structure that wraps and organizes all internal elements of the
+      modal. It manages layout, spacing, and overall alignment.
+    </p>
+  </li>
+</ul>
+<ImageModal
+  src={anatomy}
+  alt="Anatomy of 'Modal' component"
+  caption="Anatomy of 'Modal' component"
+/>
+<br />
+
+## Layout definition
+
+### Spacing
+
+<ImageModal
+  src={spacing}
+  alt="Spacing rules"
+  caption="Spacing rules"
+/>
+<br />
+
+<table class="w-full  table-fixed">
+  <thead>
+    <tr>
+      <th class="p-3 w-1/3 text-left">Property</th>
+      <th class="p-3 w-1/3 text-left">Token</th>
+      <th class="p-3 w-1/3 text-left">Value (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3" class="font-bold p-3 ">Paddings</td>
+    </tr>
+    <tr>
+      <td class="p-3">horizontal padding</td>
+      <td class="p-3 break-words">primitives.layout.size8</td>
+      <td class="p-3 font-bold">32</td>
+    </tr>
+    <tr>
+      <td class="p-3">vertical padding</td>
+      <td class="p-3 break-words">primitives.layout.size8</td>
+      <td class="p-3 font-bold">32</td>
+    </tr>
+
+    <tr>
+      <td colspan="3" class="font-bold p-3">Gaps</td>
+    </tr>
+    <tr>
+      <td class="p-3">vertical gap (between title & subtitle)</td>
+      <td class="p-3 break-words">primitives.layout.size1</td>
+      <td class="p-3 font-bold">4</td>
+    </tr>
+    <tr>
+      <td class="p-3">vertical gap</td>
+      <td class="p-3 break-words">primitives.layout.size5</td>
+      <td class="p-3 font-bold">20</td>
+    </tr>
+
+  </tbody>
+</table>
+<br />
+
+### Sizing
+
+<ImageModal
+  src={sizing}
+  alt="Sizing rules"
+  caption="Sizing rules"
+/>
+<br />
+
+<table class="w-full  table-fixed">
+  <thead>
+    <tr>
+      <th class="p-3  text-left">Property</th>
+      <th class="p-3 w-1/3 text-left">Small (px)</th>
+      <th class="p-3 w-1/3 text-left">Medium (px)</th>
+      <th class="p-3 w-1/3 text-left">Large (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        colspan="4"
+        class="font-bold p-3 "
+      >
+        Desktop
+      </td>
+    </tr>
+    <tr>
+      <td class="p-3">width</td>
+      <td class="p-3 font-bold">480</td>
+      <td class="p-3 font-bold">720</td>
+      <td class="p-3 font-bold">960</td>
+    </tr>
+    <tr>
+      <td class="p-3">height</td>
+      <td class="p-3">*height adapts to content</td>
+      <td class="p-3">*height adapts to content</td>
+      <td class="p-3">*height adapts to content</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+### Corner radius
+
+<ImageModal
+  src={radius}
+  alt="Corner radius rules"
+  caption="Corner radius rules"
+/>
+<br />
+
+<table class="w-full  table-fixed">
+  <thead>
+    <tr>
+      <th class="p-3  text-left">Property</th>
+      <th class="p-3 w-1/3 text-left">Token</th>
+      <th class="p-3 w-1/3 text-left">Value (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="p-3">corner-radius</td>
+      <td class="p-3">primitives.layout.cornerRadius4</td>
+      <td class="p-3 font-bold">16</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+### Elevations
+
+<ImageModal
+  src={elevation}
+  alt="Elevation/Shadows rules"
+  caption="Elevation/Shadows rules"
+/>
+<br />
+
+<table class="w-full table-fixed">
+  <thead>
+    <tr>
+      <th class="p-3 text-left">Property</th>
+      <th class="p-3 text-left">Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="p-3 w-fit ">corner.radius</td>
+      <td class="p-3 w-full">
+        <p class="font-bold">Level 20*</p>
+        <p>semantics.elevation.level20.offsetX</p>
+        <p>semantics.elevation.level20.offsetY</p>
+        <p>semantics.elevation.level20.blur</p>
+        <p>semantics.elevation.level20.spread</p>
+        <p>semantics.elevation.level20.dropShadow</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+## Properties
+
+### Header
+
+The header property is a boolean that defines whether the modal
+header is displayed or hidden. The header is composed of a title and an optional
+subtitle, and its purpose is to provide context for the content and guide the
+user’s action.
+
+<ImageModal
+  src={header}
+  alt="Definition of use of the 'Header' property"
+  caption="Definition of use of the 'Header' property"
+/>
+<br />
+
+### Subtitle
+
+The subtitle property is a boolean that defines whether the modal subtitle is displayed or hidden. The subtitle appears directly below the title in the header area and is used to provide complementary context or clarification for the user’s action.
+
+<ImageModal
+  src={subtitle}
+  alt="Definition of use of the 'Subtitle' property"
+  caption="Definition of use of the 'Subtitle' property"
+/>
+<br />
+
+### Close button
+
+The close button property is a boolean that allows showing or hiding the modal’s close control, located in the upper-right corner of the header. This button provides users with a direct way to dismiss the modal in addition to the primary actions.
+
+<ImageModal
+  src={close_button}
+  alt="Definition of use of the 'Close button' property"
+  caption="Definition of use of the 'Close button' property"
+/>
+<br />
+
+### Action group
+
+The action group property is a boolean that allows showing or hiding the modal’s action group, located at the bottom of the container. This area usually contains the primary and secondary buttons that guide the user’s decision-making.
+
+<ImageModal
+  src={action_group}
+  alt="Definition of use of the 'Action group' property"
+  caption="Definition of use of the 'Action group' property"
+/>
+<br />
+
+### Footnote
+
+The footnote property is a boolean that allows showing or hiding an optional note at the bottom of the modal, placed below the action group. Its purpose is to provide complementary details, clarifications, or legal messages that are not part of the main content or actions.
+
+<ImageModal
+  src={footnote}
+  alt="Definition of use of the 'Footnote' property"
+  caption="Definition of use of the 'Footnote' property"
+/>
+<br />
+<br />
+<br />
+---
+
+<br />
+
+## Use cases
+
+### Desktop
+
+In Orion, modals behave as overlay containers displayed centered on the viewport, blocking interaction with the background interface until the user completes an action or closes the modal. This pattern ensures that attention is fully focused on a critical task, such as confirming the removal of items from the cart or reviewing key transaction details. While the modal is active, underlying content remains inactive and visually dimmed to reinforce hierarchy and guide user decision-making within the HP Store flow.
+
+<ImageModal
+  src={desktop}
+  alt="Use of the 'Modal' component on desktop devices"
+  caption="Use of the 'Modal' component on desktop devices"
+/>
+<br />
+
+### Mobile
+
+On the smallest breakpoints, such as mobile devices, modals adapt to the bottom sheet pattern. Instead of appearing centered on the screen, the modal slides up from the bottom. This behavior is consistent with native mobile interaction patterns, improves reachability for thumb interaction, and preserves part of the screen context so that users don’t lose track of where they are in the flow. The bottom sheet design provides a more natural and efficient way to handle confirmations, selections, or quick tasks on mobile.
+
+On tablets, modals adopt the small modal variation, which behaves like the desktop experience: the modal appears centered on the screen. This ensures consistency across medium and large breakpoints, offering a balanced use of available space while keeping the user’s focus on the task. In this way, Orion adapts modal behavior to the ergonomics of each device type, ensuring both usability and consistency across HP’s e-commerce ecosystem.
+
+<ImageModal
+  src={mobile}
+  alt="Use of the 'Modal' component on mobile devices"
+  caption="Use of the 'Modal' component on mobile devices"
+/>
+<br />
+<br />
+<br />
+---
+
+## Best practices
+
+Follow these guidelines to ensure consistent, clear, and accessible usage of the Modal component.
+
+<CardGrid>
+  <PracticeCard
+    canDo
+    image={buttons_do}
+    text="Use a clear hierarchy of action buttons. Always define a single primary action for the most important task, supported by secondary and tertiary actions when needed."
+  />
+  <PracticeCard
+    image={buttons_dont}
+    text="Do not place two primary buttons side by side. This breaks the visual hierarchy, confuses users about which action is most important, and creates unnecessary competition between actions.
+"
+  />
+  <PracticeCard
+    canDo
+    image={buttons_do}
+    text="Use a clear hierarchy of action buttons. Always define a single primary action for the most important task, supported by secondary and tertiary actions when needed."
+  />
+  <PracticeCard
+    image={buttons_dont}
+    text="Do not place two primary buttons side by side. This breaks the visual hierarchy, confuses users about which action is most important, and creates unnecessary competition between actions.
+"
+  />
+  <PracticeCard
+    canDo
+    image={buttons_do}
+    text="Use a clear hierarchy of action buttons. Always define a single primary action for the most important task, supported by secondary and tertiary actions when needed."
+  />
+  <PracticeCard
+    image={buttons_dont}
+    text="Do not place two primary buttons side by side. This breaks the visual hierarchy, confuses users about which action is most important, and creates unnecessary competition between actions.
+"
+  />
+  <PracticeCard
+    canDo
+    image={buttons_do}
+    text="Use a clear hierarchy of action buttons. Always define a single primary action for the most important task, supported by secondary and tertiary actions when needed."
+  />
+  <PracticeCard
+    image={buttons_dont}
+    text="Do not place two primary buttons side by side. This breaks the visual hierarchy, confuses users about which action is most important, and creates unnecessary competition between actions.
+"
+  />
+</CardGrid>
+<br />
+<br />
+<br />
+---
+
+## UX tips
+
+<div class="bg-[#bdf4e9] px-8 py-4">
+  <ol>
+    <li>
+      <span class="font-bold">Clarity in Purpose:</span> Use modals to capture
+      the user’s attention for specific tasks such as form submissions,
+      confirmations, or alerts. Ensure the modal’s header clearly communicates
+      the purpose.
+    </li>
+    <li>
+      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
+      content within the modal focused and concise. Avoid overloading the user
+      with too much information. The content area should only contain essential
+      information or interactive elements needed for the user to complete the
+      task.
+    </li>
+    <li>
+      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
+      content within the modal focused and concise. Avoid overloading the user
+      with too much information. The content area should only contain essential
+      information or interactive elements needed for the user to complete the
+      task.
+    </li>
+    <li>
+      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
+      content within the modal focused and concise. Avoid overloading the user
+      with too much information. The content area should only contain essential
+      information or interactive elements needed for the user to complete the
+      task.
+    </li>
+    <li>
+      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
+      content within the modal focused and concise. Avoid overloading the user
+      with too much information. The content area should only contain essential
+      information or interactive elements needed for the user to complete the
+      task.
+    </li>
+    <li>
+      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
+      content within the modal focused and concise. Avoid overloading the user
+      with too much information. The content area should only contain essential
+      information or interactive elements needed for the user to complete the
+      task.
+    </li>
+    <li>
+      <span class="font-bold">Accessible and Intuitive Design:</span> Keep the
+      content within the modal focused and concise. Avoid overloading the user
+      with too much information. The content area should only contain essential
+      information or interactive elements needed for the user to complete the
+      task.
+    </li>
+  </ol>
+  <p>
+    By following these best practices, the ‘Modal’ component can be effectively
+    utilized to enhance user interaction and provide a smooth, accessible, and
+    efficient user experience across different contexts within an interface.
+  </p>
+</div>

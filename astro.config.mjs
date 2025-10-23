@@ -8,7 +8,10 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'Design System Docs',
+      title: 'Orion UI Library',
+      logo: {
+        src: './src/assets/images/logo.svg'
+      },
       customCss: [
         // Path to your Tailwind base styles:
         './src/styles/global.css',
@@ -18,8 +21,8 @@ export default defineConfig({
           label: 'Components',
           items: [
             { label: 'Overview', slug: 'components/overview' },
-            { label: 'Ation bar', slug: 'components/actionbar' },
-            { label: 'Banner', slug: 'components/banner' },
+            { label: 'Modal', slug: 'components/modal' },
+            { label: 'Popover', slug: 'components/popover' },
           ],
         },
         {
