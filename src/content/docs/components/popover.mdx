@@ -2,3 +2,662 @@
 title: "Popover"
 description: "Banners give users visibility to curations, promotions, events, and programs with a CTA that drives them to explore more."
 ---
+
+import { CardGrid } from "@astrojs/starlight/components";
+import ComponentCard from "../../../components/ComponentCard.astro";
+import PracticeCard from "../../../components/PracticeCard.astro";
+import ImageModal from "../../../components/ImageModal.astro";
+import PropertyCard from "../../../components/PropertyCard.astro";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import popover from "../../../assets/images/popover.webp";
+import popover_anatomy from "../../../assets/images/popover_modal.svg";
+import popover_autoplacement from "../../../assets/images/popover_auto_placement.webp";
+import spacing from "../../../assets/images/popover_spacing.svg";
+import sizing from "../../../assets/images/popover_sizing.svg";
+import radius from "../../../assets/images/popover_border_radius.svg";
+import elevation from "../../../assets/images/popover_elevations.svg";
+import arrow from "../../../assets/images/popover_arrow.svg";
+import arrow_placement from "../../../assets/images/popover_arrow_placement.svg";
+import subtitle from "../../../assets/images/subtitle.svg";
+import header from "../../../assets/images/popover_header.svg";
+import popover_leading_icon from "../../../assets/images/popover_leading_icon.svg";
+import close_button from "../../../assets/images/popover_close_button.svg";
+import action_group from "../../../assets/images/popover_action_group.svg";
+import footnote from "../../../assets/images/footnote.svg";
+import popover_interaction from "../../../assets/images/popover_interaction.svg";
+import mobile from "../../../assets/images/mobile.webp";
+import buttons_do from "../../../assets/images/buttons_do.svg";
+import modal_do from "../../../assets/images/modal_do.svg";
+import modal_dont from "../../../assets/images/modal_dont.svg";
+import confirm_do from "../../../assets/images/confirm_do.webp";
+import confirm_dont from "../../../assets/images/confirm_dont.webp";
+import above_do from "../../../assets/images/above_do.webp";
+import above_dont from "../../../assets/images/above_dont.webp";
+import buttons_dont from "../../../assets/images/buttons_dont.svg";
+import { Aside } from "@astrojs/starlight/components";
+
+A popover is a transient UI component that displays contextual content in
+a layer above the interface, typically triggered by user interaction like
+clicking or hovering.
+
+<br />
+<ImageModal
+  src={popover}
+  alt="Popover"
+/>
+
+<br />A **Popover** is a contextual UI component that delivers supporting
+information or lightweight actions anchored to a trigger element. It is
+primarily used to clarify product details, highlight specifications, or surface
+quick options relevant to e-commerce interactions. Designed for focus and
+efficiency, it helps users access contextual guidance without interrupting their
+main shopping flow in HP Store.
+
+## Anatomy
+
+The anatomy of the “Modal” component includes the following essential elements:
+
+<br />
+
+<ol class="custom-list">
+  <li class="list-image-[url(/list/list1.svg)]">
+    <h4>Container</h4>
+    <p>
+      The main surface that groups all internal elements of the popover. It
+      defines the component’s boundary, provides elevation, and visually
+      separates the popover from the underlying content.
+    </p>
+  </li>
+  <li class="list-image-[url(/list/list2.svg)]">
+    <h4>Header (optional)</h4>
+    <p>
+      A dedicated subcomponent instance placed at the top of the Popover. It may
+      include a title, subtitle, leading icon, and/or close button. Its
+      inclusion depends on the use case.
+    </p>
+  </li>
+  <li class="list-image-[url(/list/list3.svg)]">
+    <h4>Content area</h4>
+    <p>
+      The central and flexible zone of the popover. It displays the main
+      information, controls, or interactive elements relevant to the user’s
+      task. This is the functional core of the component.
+    </p>
+  </li>
+  <li class="list-image-[url(/list/list4.svg)]">
+    <h4>Footer actions (optional)</h4>
+    <p>
+      The bottom section of the popover reserved for complementary actions, such
+      as links, confirmation buttons, or secondary interactions. Its inclusion
+      depends on the specific use case.
+    </p>
+  </li>
+  <li class="list-image-[url(/list/list5.svg)]">
+    <h4>Arrow (optional)</h4>
+    <p>
+      A triangular visual indicator connecting the popover to its trigger
+      element. It reinforces the spatial and contextual relationship between the
+      content shown and the interaction point.
+    </p>
+  </li>
+</ol>
+<ImageModal
+  src={popover_anatomy}
+  alt="Anatomy of 'Popover' component"
+  caption="Anatomy of 'Popover' component"
+/>
+<br />
+
+## Layout definition
+
+### Spacing
+
+<ImageModal
+  src={spacing}
+  alt="Spacing rules"
+  caption="Spacing rules"
+/>
+<br />
+
+<table class="w-full  table-fixed">
+  <thead>
+    <tr>
+      <th class="p-3 w-1/3 text-left">Property</th>
+      <th class="p-3 w-1/3 text-left">Token</th>
+      <th class="p-3 w-1/3 text-left">Value (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3" class="font-bold p-3 ">Paddings</td>
+    </tr>
+    <tr>
+      <td class="p-3">horizontal padding</td>
+      <td class="p-3 break-words"><span class="css-var">primitives.layout.size3</span></td>
+      <td class="p-3 font-bold">12</td>
+    </tr>
+    <tr>
+      <td class="p-3">vertical padding</td>
+      <td class="p-3 break-words"><span class="css-var">primitives.layout.size3</span></td>
+      <td class="p-3 font-bold">12</td>
+    </tr>
+
+    <tr>
+      <td colspan="3" class="font-bold p-3">Gaps</td>
+    </tr>
+    <tr>
+      <td class="p-3">vertical gap</td>
+      <td class="p-3 break-words"><span class="css-var">primitives.layout.size3</span></td>
+      <td class="p-3 font-bold">12</td>
+    </tr>
+
+  </tbody>
+</table>
+<br />
+
+### Sizing
+
+<ImageModal
+  src={sizing}
+  alt="Sizing rules"
+  caption="Sizing rules"
+/>
+<br />
+
+<table class="w-full  table-fixed">
+  <thead>
+    <tr>
+      <th class="p-3  text-left min-w-[150px]">Property</th>
+      <th class="p-3 w-1/3 text-left">Value (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="p-3 w-fit">min-width</td>
+      <td class="p-3 w-full font-bold">200</td>
+    </tr>
+    <tr>
+      <td class="p-3">min-width</td>
+      <td class="p-3 font-bold">500</td>
+    </tr>
+    <tr>
+      <td class="p-3">height</td>
+      <td class="p-3 text-xs">*height adapts to content</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+### Corner radius
+
+<ImageModal
+  src={radius}
+  alt="Corner radius rules"
+  caption="Corner radius rules"
+/>
+<br />
+
+<table class="w-full  table-fixed">
+  <thead>
+    <tr>
+      <th class="p-3  text-left">Property</th>
+      <th class="p-3 w-1/3 text-left">Token</th>
+      <th class="p-3 w-1/3 text-left">Value (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="p-3">corner-radius</td>
+      <td class="p-3">
+        <span class="css-var">primitives.layout.cornerRadius2</span>
+      </td>
+      <td class="p-3 font-bold">8</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+### Elevations
+
+<ImageModal
+  src={elevation}
+  alt="Elevation/Shadows rules"
+  caption="Elevation/Shadows rules"
+/>
+<br />
+
+<table class="w-full table-fixed">
+  <thead>
+    <tr>
+      <th class="p-3 text-left min-w-[150px]">Property</th>
+      <th class="p-3 text-left">Token</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="p-3 w-fit ">corner-radius</td>
+      <td class="p-3 w-full">
+        <p class="font-bold">Level 16*</p>
+        <p class="css-var w-fit mt-1">semantics.elevation.level16.offsetX</p>
+        <p class="css-var w-fit mt-1">semantics.elevation.level16.offsetY</p>
+        <p class="css-var w-fit mt-1">semantics.elevation.level16.blur</p>
+        <p class="css-var w-fit mt-1">semantics.elevation.level16.spread</p>
+        <p class="css-var w-fit mt-1">semantics.color.effects.dropShadow</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+## Properties
+
+### Arrow indicator
+
+The Arrow property controls the display of the arrow indicator in the Popover. This arrow visually connects the Popover to its trigger, pointing towards the element that activated it.
+
+<ul>
+  <li>
+    <span class="font-bold">When enabled:</span> the arrow is rendered on the
+    edge of the Popover, reinforcing the spatial relationship between the
+    Popover and its trigger.
+  </li>
+  <li>
+    <span class="font-bold">When disabled:</span> the Popover is displayed
+    without the arrow, resulting in a cleaner and more neutral layout.
+  </li>
+</ul>
+
+This property is boolean, allowing flexibility depending on whether the Popover needs to explicitly indicate its origin or remain minimal.
+
+<ImageModal
+  src={arrow}
+  alt="Definition of use of the 'Arrow indicator' property"
+  caption="Definition of use of the 'Arrow indicator' property"
+/>
+<br />
+
+### Placement
+
+The Placement property defines the position of the Popover relative to its trigger element. It specifies where the Popover will be anchored once activated.
+
+<table class="w-full table-fixed">
+  <thead>
+    <tr>
+      <th class="text-left min-w-[150px]">Placement</th>
+      <th class="text-left">description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Top</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed above the trigger, aligned to its center.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Top Start</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed above the trigger, aligned to the start edge.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Top End</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed above the trigger, aligned to the end edge.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Bottom</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed below the trigger, aligned to its center.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Bottom Start</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed below the trigger, aligned to the start edge.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Bottom End</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed below the trigger, aligned to the end edge.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Leading</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed on the leading side (left in LTR, right in
+        RTL), aligned to the center.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Leading Start</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed on the leading side, aligned to the start edge
+        of the trigger.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Leading End</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed on the leading side, aligned to the end edge of
+        the trigger.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Trailing</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed on the trailing side (right in LTR, left in
+        RTL), aligned to the center.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Trailing Start</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed on the trailing side, aligned to the start edge
+        of the trigger.
+      </td>
+    </tr>
+    <tr>
+      <td class="w-fit ">
+        <span class="css-var w-fit">Trailing End</span>
+      </td>
+      <td class="w-full">
+        The Popover is displayed on the trailing side, aligned to the end edge
+        of the trigger.
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<div class="px-8 py-4 rounded-3xl bg-[#e2ebf8] dark:bg-[#21394f]">
+  <p>
+    <span class="font-bold">Note:</span> "Placement" refers to the location of
+    the Popover, not the arrow direction. For example, when set to Bottom, the
+    Popover appears below the trigger, aligned to its center, even though the
+    arrow visually points upward.
+  </p>
+</div>
+<br />
+<ImageModal
+  src={arrow_placement}
+  alt="Definition of use of the 'Placement' property"
+  caption="Definition of use of the 'Placement' property"
+/>
+<br />
+
+### Close button
+
+The close button property is a boolean that allows showing or hiding the modal’s close control, located in the upper-right corner of the header. This button provides users with a direct way to dismiss the modal in addition to the primary actions.
+
+<ImageModal
+  src={close_button}
+  alt="Definition of use of the 'Close button' property"
+  caption="Definition of use of the 'Close button' property"
+/>
+<br />
+
+### Header
+
+The Header property is a boolean option that allows enabling or disabling the header section of the Popover.
+
+<ul>
+  <li>
+    <span class="font-bold">When enabled:</span>
+    The Popover displays a title and an optional subtitle above the content
+    area.
+  </li>
+  <li>
+    <span class="font-bold">When disabled:</span>
+    The content is presented without a header, offering a more minimal layout.
+  </li>
+</ul>
+
+<ImageModal
+  src={header}
+  alt="Definition of use of the 'Action group' property"
+  caption="Definition of use of the 'Action group' property"
+/>
+<br />
+
+### Leading icon on header
+
+The Leading icon property controls the display of an icon positioned to the left side of the header content.
+
+<ul>
+  <li>
+    <span class="font-bold">When enabled:</span>
+    An icon is placed before the header title, reinforcing the purpose or
+    context of the Popover (e.g., an information icon, warning icon, or status
+    symbol).
+  </li>
+  <li>
+    <span class="font-bold">When disabled:</span>
+    The header is displayed without any leading icon, maintaining a cleaner and
+    more minimal layout.
+  </li>
+</ul>
+
+This property is useful when additional visual context is required to help users quickly recognize the type of information or action presented in the Popover.
+
+<ImageModal
+  src={popover_leading_icon}
+  alt="Definition of use of the 'Leading icon' property"
+  caption="Definition of use of the 'Leading icon' property"
+/>
+<br />
+
+### Action group
+
+The Action group property is a boolean option that allows including or excluding a footer area at the bottom of the Popover.
+
+<ul>
+  <li>
+    <span class="font-bold">When enabled:</span>
+    The footer may contain links, buttons, or secondary actions.
+  </li>
+  <li>
+    <span class="font-bold">When disabled:</span>
+    The Popover displays only the content area (and optional header if enabled),
+    keeping the layout simpler.
+  </li>
+</ul>
+
+<ImageModal
+  src={action_group}
+  alt="Definition of use of the 'Action group' property"
+  caption="Definition of use of the 'Action group' property"
+/>
+
+<br />
+<br />
+<br />
+---
+
+<br />
+
+## Interaction definition
+
+### Behavior
+
+The Popover is always initiated by a trigger element (e.g., a button, icon, or any interactive control). When the user clicks, taps, or activates the trigger, the popover is displayed, presenting contextual content without replacing or blocking the rest of the interface.
+
+<div class="rounded-3xl bg-[#bdf4e9] dark:bg-[#273d39] p-8">
+  <p class="font-bold">Key interaction rules:</p>
+  <ul>
+    <li>
+      The popover is anchored to its trigger and appears only in response to
+      that action.
+    </li>
+    <li>
+      It does not block interaction with the background or the rest of the
+      viewport.
+    </li>
+    <li>The popover is dismissed when:</li>
+    <li>The user clicks outside of it.</li>
+    <li>The user presses the trigger element again.</li>
+  </ul>
+  <p>
+    This behavior ensures that the popover remains a lightweight, contextual
+    layer, providing information or actions without interrupting the user’s
+    flow.
+  </p>
+</div>
+<ImageModal
+  src={popover_interaction}
+  alt="Use of the 'Modal' component on desktop devices"
+  caption="Use of the 'Modal' component on desktop devices"
+/>
+<br />
+
+### Auto-Placement
+
+The Popover allows defining the preferred direction in which it will appear relative to its trigger element.
+This is configured through the **placement property**, with the following common options: **top, bottom, left, right**
+
+#### Behavior rules
+
+<ul>
+  <li>
+    The developer defines the preferred placement through the component
+    property.
+  </li>
+  <li>
+    The system applies an auto-placement mechanism to ensure the Popover always
+    remains visible within the viewport.
+    <ul>
+      <li>
+        Example: if the placement is set to bottom but there is not enough space
+        below, the Popover will automatically open on top.
+      </li>
+    </ul>
+  </li>
+  <li>
+    The Popover always stays anchored to its trigger, adjusting dynamically to
+    preserve alignment and readability.
+  </li>
+</ul>
+
+#### Usage recommendations
+
+<ul>
+  <li>
+    Use the default placement (bottom) unless the context explicitly requires
+    another position.
+  </li>
+  <li>Avoid forcing placements that may conflict with other UI elements.</li>
+  <li>
+    Always consider responsiveness: on smaller screens, relying on
+    auto-placement ensures a better experience.
+  </li>
+</ul>
+<ImageModal
+  src={popover_autoplacement}
+  alt="Use of the 'Modal' component on mobile devices"
+/>
+<br />
+<br />
+<br />
+---
+
+## Best practices
+
+Follow these guidelines to ensure consistent, clear, and accessible usage of the Popover component.
+
+<CardGrid>
+  <PracticeCard
+    canDo
+    image={buttons_do}
+    text="Use a clear hierarchy of action buttons. Always define a single primary action for the most important task, supported by secondary and tertiary actions when needed."
+  />
+  <PracticeCard
+    image={buttons_dont}
+    text="Do not place two primary buttons side by side. This breaks the visual hierarchy, confuses users about which action is most important, and creates unnecessary competition between actions."
+  />
+</CardGrid>
+<br />
+<br />
+<br />
+---
+
+## UX tips
+
+<div class="rounded-3xl bg-[#bdf4e9] dark:bg-[#273d39] p-8">
+  <ol>
+    <li>
+      <span class="font-bold">Clarity in Context:</span>
+      Use popovers to provide users with brief, contextual information or quick
+      actions related to a specific element. Ensure the content is directly
+      relevant to the user’s current task.
+    </li>
+    <li>
+      <span class="font-bold">Keep it Short and Focused:</span>
+      Content in a popover should be concise and limited to essential
+      information. Avoid long explanations, multiple steps, or unrelated
+      content. If more detail is needed, use a modal or a dedicated page.
+    </li>
+    <li>
+      <span class="font-bold">Trigger Appropriately:</span>
+      Activate popovers using clear user actions typically click, tap, hover, or
+      focus on an icon or element. Use click for more interactive content, and
+      hover/focus for brief tips.
+    </li>
+    <li>
+      <span class="font-bold">Easy to Dismiss:</span>
+      Popovers should be easy to close by clicking outside, pressing the{" "}
+      <span class="css-var">Esc</span> key, or blurring focus. Avoid persistent
+      popovers that require extra steps to dismiss.
+    </li>
+    <li>
+      <span class="font-bold">Do Not Block Workflow:</span>
+      Popovers should never block user progress or require a decision to
+      continue. For blocking interactions, use a modal instead.
+    </li>
+    <li>
+      <span class="font-bold">Accessible Design:</span>
+      Ensure popovers are accessible to all users, including those using screen
+      readers. Use semantic HTML, manage focus, and provide clear relationships
+      between the trigger and the popover content.
+    </li>
+    <li>
+      <span class="font-bold">Visual Clarity and Placement:</span>
+      Place popovers close to the triggering element and use an arrow or pointer
+      to clearly indicate their source. Ensure popovers do not cover essential
+      content or obstruct the workflow.
+    </li>
+    <li>
+      <span class="font-bold">Responsive and Adaptable:</span>
+      Popovers should adapt to different screen sizes and orientations. Make
+      sure content remains readable and interactive on both desktop and mobile
+      devices.
+    </li>
+  </ol>
+  <p>
+    By following these best practices, the ‘Popover’ component can be used
+    effectively to provide helpful, contextual information and actions without
+    interrupting or overwhelming the user.
+  </p>
+</div>
