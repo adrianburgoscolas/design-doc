@@ -1,0 +1,45 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import { Image } from "astro:assets";
+
+interface Props {
+  canDo: boolean;
+  image: ImageMetadata;
+  text: string;
+}
+const { image, canDo, text } = Astro.props;
+---
+
+<div>
+  <Image
+    class:list={[
+      {
+        "border-16 border-[var(--colors-blocks-rules-background-do,#bdf4e9)]":
+          canDo,
+      },
+      {
+        "border-16 border-[var(--colors-blocks-rules-background-dont,#fce5e4)]":
+          !canDo,
+      },
+    ]}
+    src={image}
+    alt="components"
+  />
+  <div
+    class:list={[
+      "flex items-center gap-1 w-fit rounded-full pl-3 pr-4",
+      {
+        "bg-[var(--colors-blocks-rules-background-do,#bdf4e9)]": canDo,
+      },
+      {
+        "bg-[var(--colors-blocks-rules-background-dont,#fce5e4)]": !canDo,
+      },
+    ]}
+  >
+    <Icon name="approve-check" />
+    {canDo && <span>Do</span>}
+
+    {!canDo && <span>Don't</span>}
+  </div>
+  <p>{text}</p>
+</div>

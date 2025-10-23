@@ -1,0 +1,161 @@
+---
+// src/components/ImageModal.astro
+import { Image } from "astro:assets";
+
+// 1. Props que recibe el componente
+const { src, alt, width, height, animate = true, caption } = Astro.props;
+
+// Función para obtener la URL de la imagen maximizada (puede ser la misma)
+// Si usas el componente <Image /> de Astro, 'src' ya es un objeto de imagen optimizado.
+// Si no, puedes pasar la URL completa como string.
+const fullImageUrl = src.src || src;
+---
+
+<div class="image-wrapper">
+  <button
+    class="image-trigger"
+    data-image-url={fullImageUrl}
+    aria-label={`Ver imagen de ${alt} en tamaño completo`}
+  >
+    <Image
+      class:list={[
+        "w-full rounded-3xl",
+        {
+          "hover:shadow-lg hover:scale-101 transition-all duration-300":
+            animate,
+        },
+      ]}
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading="lazy"
+    />
+    <p class="text-left text-xs">{caption}</p>
+  </button>
+
+  <dialog
+    class="image-modal"
+    id="myImageModal"
+  >
+    <div class="modal-content">
+      <img
+        class="rounded-3xl"
+        src={fullImageUrl}
+        alt={alt}
+        style="max-width: 100%; max-height: 80vh; object-fit: contain;"
+      />
+      <button
+        class="close-button"
+        aria-label="Cerrar modal"
+      >
+        &times;
+      </button>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  // Selecciona el modal y todos los botones que lo disparan
+  const modal = document.getElementById("myImageModal") as HTMLDialogElement;
+  const triggers = document.querySelectorAll(".image-trigger");
+  const closeButton = modal?.querySelector(".close-button");
+  const modalImage = modal?.querySelector("img");
+
+  // Asegúrate de que los elementos existen antes de añadir listeners
+  if (modal && triggers.length > 0 && closeButton && modalImage) {
+    // 3. Abrir el Modal
+    triggers.forEach((trigger: any) => {
+      trigger.addEventListener("click", () => {
+        const imageUrl = trigger.dataset.imageUrl;
+
+        // Establece el src de la imagen del modal y abre
+        modalImage.src = imageUrl;
+        modal.showModal();
+      });
+    });
+
+    // 4. Cerrar el Modal al hacer clic en el botón de cerrar
+    closeButton.addEventListener("click", () => {
+      modal.close();
+    });
+
+    // 5. Cerrar el Modal al hacer clic en el fondo (backdrop)
+    modal.addEventListener("click", (event) => {
+      // Verifica si el clic ocurrió directamente en el elemento <dialog> (el fondo)
+      if (event.target === modal) {
+        modal.close();
+      }
+    });
+
+    // El elemento <dialog> se cierra automáticamente con la tecla ESC.
+  }
+</script>
+
+<style>
+  .image-trigger {
+    /* Estilos para que parezca una imagen clickeable */
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  /* Estilos específicos para el elemento <dialog> nativo */
+  .image-modal {
+    border: none;
+    padding: 0;
+    background: rgba(0, 0, 0, 0); /* Fondo oscuro */
+    width: auto;
+    height: auto;
+    max-width: 95%;
+    max-height: 95%;
+    /* Centra el modal en la pantalla (propiedad intrínseca del <dialog>) */
+    margin: auto;
+  }
+
+  /* El fondo (backdrop) es automático, pero puedes estilizarlo si lo deseas */
+  .image-modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .modal-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-content img {
+    /* Estilos para que la imagen maximizada quepa en el modal */
+    object-fit: contain;
+    width: auto;
+    height: auto;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  .close-button:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+</style>

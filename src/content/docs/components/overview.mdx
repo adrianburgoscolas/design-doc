@@ -1,26 +1,27 @@
 ---
 title: "Overview"
 description: "Components are reusable pieces of code that serve as specific user interface elements or functions."
+tableOfContents: false
 ---
 
 import { CardGrid } from "@astrojs/starlight/components";
 
 import ComponentCard from "../../../components/ComponentCard.astro";
-import actionbar from "../../../assets/images/action_bar.avif";
-import banner from "../../../assets/images/banner.avif";
+import modal from "../../../assets/images/modal.webp";
+import popover from "../../../assets/images/popover.webp";
 import card from "../../../assets/images/card.avif";
 
-"Components are reusable pieces of code that serve as specific user interface elements or functions."
+Components are reusable pieces of code that serve as specific user interface elements or functions.
 
 <CardGrid>
   <ComponentCard
-    image={actionbar}
-    title="Action bar"
-    slug="/components/actionbar"
+    image={modal}
+    title="Modal"
+    slug="/components/modal"
   />
   <ComponentCard
-    image={banner}
-    title="Banner"
-    slug="/components/banner"
+    image={popover}
+    title="Popover"
+    slug="/components/popover"
   />
 </CardGrid>
