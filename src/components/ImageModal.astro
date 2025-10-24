@@ -83,7 +83,7 @@ const fullImageUrl = src.src || src;
     // 5. Cerrar el Modal al hacer clic en el fondo (backdrop)
     modal.addEventListener("click", (event) => {
       // Verifica si el clic ocurrió directamente en el elemento <dialog> (el fondo)
-      if (event.target === modal) {
+      if (event.target !== modalImage) {
         modal.close();
       }
     });
