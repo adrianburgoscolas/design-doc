@@ -90,5 +90,5 @@ nav {
 }
 
 .css-var {
-  @apply cursor-pointer border border-gray-400 px-2 py-1 rounded-md bg-zinc-50 dark:bg-zinc-800;
+  @apply block cursor-pointer border border-gray-400 px-2 py-1 rounded-md bg-zinc-50 dark:bg-zinc-800;
 }

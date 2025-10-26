@@ -7,7 +7,7 @@
   cssVarList.forEach((varList) => {
     varList.addEventListener("click", async () => {
       try {
-        await navigator.clipboard.writeText(varList.innerHTML);
+        await navigator.clipboard.writeText(varList.textContent);
         alert("Text copied to clipboard!");
       } catch (err) {
         console.error("Failed to copy text: ", err);
