@@ -4,6 +4,14 @@
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
 
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 40rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-desktop: 80rem;
+}
+
 :root {
   --sl-color-accent: #024AD8;
   scrollbar-gutter: stable;
@@ -82,5 +90,5 @@ nav {
 }
 
 .css-var {
-  @apply border border-gray-400 px-2 py-1 rounded-md bg-zinc-50 dark:bg-zinc-800;
+  @apply cursor-pointer border border-gray-400 px-2 py-1 rounded-md bg-zinc-50 dark:bg-zinc-800;
 }

@@ -5,17 +5,27 @@ template: splash
 hero:
   tagline: This is our design system that connects people with passions, and enables us to build great experiences for our customers.
   image:
-    file: ../../assets/images/hero.svg
+    file: ../../assets/images/HP-logo.svg
 ---
 
 import { CardGrid } from "@astrojs/starlight/components";
+import { Icon } from "@astrojs/starlight/components";
 
 import ComponentCard from "../../components/ComponentCard.astro";
 
-import components from "../../assets/images/components.avif";
-import patterns from "../../assets/images/patterns.avif";
+import components from "../../assets/images/components.svg";
+import foundations from "../../assets/images/foundations.svg";
+import patterns from "../../assets/images/patterns.svg";
+import templates from "../../assets/images/templates.svg";
+import resources from "../../assets/images/resources.svg";
+import support from "../../assets/images/support.svg";
 
 <CardGrid>
+  <ComponentCard
+    image={foundations}
+    title="Foundations"
+    slug="/components/overview"
+  />
   <ComponentCard
     image={components}
     title="Components"
@@ -26,4 +36,105 @@ import patterns from "../../assets/images/patterns.avif";
     title="Patterns"
     slug="/patterns/overview"
   />
+  <ComponentCard
+    image={templates}
+    title="Templates"
+    slug="/patterns/overview"
+  />
+  <ComponentCard
+    image={resources}
+    title="Resources"
+    slug="/components/overview"
+  />
+  <ComponentCard
+    image={support}
+    title="Support"
+    slug="/patterns/overview"
+  />
 </CardGrid>
+<div class="border-t border-t-[#D1D5DB] dark:border-t-[#1F2937]">
+  <div class="py-20">
+    <div class="flex flex-col gap-12 laptop:flex-row laptop:justify-between">
+      <div class="text-center text-[18px] leading-6 laptop:text-left">
+        <p class="font-medium">© 2025 HP. All rights reserved</p>
+        <p>
+          <span>The HP trademark, and the HP logo are the intellectual</span>
+          <br />
+          <span>property of HP Inc.</span>
+        </p>
+      </div>
+      <div class="flex flex-col gap-12 text-center laptop:text-right laptop:flex-row laptop:mt-0">
+        <div>
+          <p class="font-medium">
+            <a
+              class="text-[#030712] no-underline hover:underline"
+              href="#"
+            >
+            <span>Terms of use</span>
+            <br />
+            <span>Store Design</span>
+            <br />
+            <span>Medium</span>
+            <br />
+            </a>
+          </p>
+        </div>
+        <div class="laptop:mt-0">
+          <p class="font-medium">
+            <a
+              class="text-[#030712] no-underline hover:underline"
+              href="#"
+            >
+            <span>HP Support</span>
+            <br />
+            <span>Carrers</span>
+            <br />
+            <span>Global Contact</span>
+            <br />
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-18 flex justify-center laptop:justify-start">
+      <div class="w-fit">
+        <div class="flex justify-center gap-4 mb-4 laptop:justify-start">
+          <a
+            href="https://www.linkedin.com/in/vicentegrafico/"
+            class="w-13 h-13 bg-[#E5E7EB] rounded-full flex justify-center items-center"
+            aria-label="Linkedin social network link"
+            target="_blank"
+          >
+            <Icon
+              name="linkedin"
+              size={20}
+            />
+          </a>
+          <a
+            href="https://medium.com/@vicentegrafico.com"
+            class="w-13 h-13 bg-[#E5E7EB] rounded-full flex justify-center items-center"
+            aria-label="Medium social network link"
+            target="_blank"
+          >
+            <Icon
+              name="medium"
+              size={24}
+            />
+          </a>
+          <a
+            href="https://x.com/vicentegrafico"
+            class="w-13 h-13 bg-[#E5E7EB] rounded-full flex justify-center items-center"
+            aria-label="X social network link"
+            target="_blank"
+          >
+            <Icon
+              name="x.com"
+              size={20}
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

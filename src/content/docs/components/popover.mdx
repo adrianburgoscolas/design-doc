@@ -3,8 +3,9 @@ title: "Popover"
 description: "Banners give users visibility to curations, promotions, events, and programs with a CTA that drives them to explore more."
 ---
 
-import { CardGrid } from "@astrojs/starlight/components";
+import { CardGrid, Icon } from "@astrojs/starlight/components";
 import ComponentCard from "../../../components/ComponentCard.astro";
+import CopyToClipboard from "../../../components/CopyToClipboard.astro";
 import PracticeCard from "../../../components/PracticeCard.astro";
 import ImageModal from "../../../components/ImageModal.astro";
 import PropertyCard from "../../../components/PropertyCard.astro";
@@ -35,6 +36,21 @@ import above_do from "../../../assets/images/above_do.webp";
 import above_dont from "../../../assets/images/above_dont.webp";
 import buttons_dont from "../../../assets/images/buttons_dont.svg";
 import { Aside } from "@astrojs/starlight/components";
+
+<div class="flex gap-4">
+  <a class="cursor-pointer flex items-center gap-2">
+    <Icon name="figma" />
+    <span>Figma</span>
+  </a>
+  <a class="cursor-pointer flex items-center gap-2">
+    <Icon name="github" />
+    <span>Github</span>
+  </a>
+  <a class="cursor-pointer flex items-center gap-2">
+    <Icon name="storybook" />
+    <span>Storybook</span>
+  </a>
+</div>
 
 A popover is a transient UI component that displays contextual content in
 a layer above the interface, typically triggered by user interaction like
@@ -133,12 +149,12 @@ The anatomy of the “Modal” component includes the following essential elemen
     </tr>
     <tr>
       <td class="p-3">horizontal padding</td>
-      <td class="p-3 break-words"><span class="css-var">primitives.layout.size3</span></td>
+      <td class="p-3 break-words"><span title="copy to clipboard" class="css-var">primitives.layout.size3</span></td>
       <td class="p-3 font-bold">12</td>
     </tr>
     <tr>
       <td class="p-3">vertical padding</td>
-      <td class="p-3 break-words"><span class="css-var">primitives.layout.size3</span></td>
+      <td class="p-3 break-words"><span title="copy to clipboard" class="css-var">primitives.layout.size3</span></td>
       <td class="p-3 font-bold">12</td>
     </tr>
 
@@ -147,7 +163,7 @@ The anatomy of the “Modal” component includes the following essential elemen
     </tr>
     <tr>
       <td class="p-3">vertical gap</td>
-      <td class="p-3 break-words"><span class="css-var">primitives.layout.size3</span></td>
+      <td class="p-3 break-words"><span title="copy to clipboard" class="css-var">primitives.layout.size3</span></td>
       <td class="p-3 font-bold">12</td>
     </tr>
 
@@ -209,7 +225,12 @@ The anatomy of the “Modal” component includes the following essential elemen
     <tr>
       <td class="p-3">corner-radius</td>
       <td class="p-3">
-        <span class="css-var">primitives.layout.cornerRadius2</span>
+        <span
+          title="copy to clipboard"
+          class="css-var"
+        >
+          primitives.layout.cornerRadius2
+        </span>
       </td>
       <td class="p-3 font-bold">8</td>
     </tr>
@@ -628,8 +649,14 @@ Follow these guidelines to ensure consistent, clear, and accessible usage of the
     <li>
       <span class="font-bold">Easy to Dismiss:</span>
       Popovers should be easy to close by clicking outside, pressing the{" "}
-      <span class="css-var">Esc</span> key, or blurring focus. Avoid persistent
-      popovers that require extra steps to dismiss.
+      <span
+        title="copy to clipboard"
+        class="css-var"
+      >
+        Esc
+      </span>{" "}
+      key, or blurring focus. Avoid persistent popovers that require extra steps
+      to dismiss.
     </li>
     <li>
       <span class="font-bold">Do Not Block Workflow:</span>
@@ -661,3 +688,4 @@ Follow these guidelines to ensure consistent, clear, and accessible usage of the
     interrupting or overwhelming the user.
   </p>
 </div>
+<CopyToClipboard />
