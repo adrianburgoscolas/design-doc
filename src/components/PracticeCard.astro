@@ -1,6 +1,7 @@
 ---
 import { Icon } from "@astrojs/starlight/components";
 import { Image } from "astro:assets";
+import ImageModal from "./ImageModal.astro";
 
 interface Props {
   canDo: boolean;
@@ -11,9 +12,9 @@ const { image, canDo, text } = Astro.props;
 ---
 
 <div>
-  <Image
+  <div
     class:list={[
-      "rounded-3xl",
+      "rounded-3xl w-full h-auto",
       {
         "border-16 border-[var(--colors-blocks-rules-background-do,#bdf4e9)] dark:border-[var(--colors-blocks-rules-background-do,#273d39)]":
           canDo,
@@ -23,9 +24,14 @@ const { image, canDo, text } = Astro.props;
           !canDo,
       },
     ]}
-    src={image}
-    alt="components"
-  />
+  >
+    <ImageModal
+      animate={false}
+      rounded={false}
+      src={image}
+      alt="components"
+    />
+  </div>
   <div
     class:list={[
       "flex items-center gap-1 w-fit rounded-full pl-3 pr-4",

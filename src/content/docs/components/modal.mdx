@@ -5,6 +5,7 @@ description: "A modal is an interactive window that appears on screen and blurs 
 
 import { CardGrid } from "@astrojs/starlight/components";
 import ComponentCard from "../../../components/ComponentCard.astro";
+import CopyToClipboard from "../../../components/CopyToClipboard.astro";
 import PracticeCard from "../../../components/PracticeCard.astro";
 import ImageModal from "../../../components/ImageModal.astro";
 import PropertyCard from "../../../components/PropertyCard.astro";
@@ -30,7 +31,22 @@ import confirm_dont from "../../../assets/images/confirm_dont.webp";
 import above_do from "../../../assets/images/above_do.webp";
 import above_dont from "../../../assets/images/above_dont.webp";
 import buttons_dont from "../../../assets/images/buttons_dont.svg";
-import { Aside } from "@astrojs/starlight/components";
+import { Aside, Icon } from "@astrojs/starlight/components";
+
+<div class="flex gap-4">
+  <a class="cursor-pointer flex items-center gap-2">
+    <Icon name="figma" />
+    <span>Figma</span>
+  </a>
+  <a class="cursor-pointer flex items-center gap-2">
+    <Icon name="github" />
+    <span>Github</span>
+  </a>
+  <a class="cursor-pointer flex items-center gap-2">
+    <Icon name="storybook" />
+    <span>Storybook</span>
+  </a>
+</div>
 
 A modal is an interactive window that appears on screen and blurs the background screen to focus the user’s attention on the modal’s action. For example, a modal can ask the user to confirm or cancel a choice.
 
@@ -56,7 +72,7 @@ The anatomy of the “Modal” component includes the following essential elemen
 
 <br />
 
-<ol class="custom-list">
+<ol class="custom-list list-outside pl-7">
   <li class="list-image-[url(/list/list1.svg)]">
     <h4>Container</h4>
     <p>
@@ -147,12 +163,12 @@ The anatomy of the “Modal” component includes the following essential elemen
     </tr>
     <tr>
       <td class="p-3">horizontal padding</td>
-      <td class="p-3 break-words"><span class="css-var">primitives.layout.size8</span></td>
+      <td class="p-3 break-words"><span title="copy to clipboard" class="css-var">primitives.layout.size8</span></td>
       <td class="p-3 font-bold">32</td>
     </tr>
     <tr>
       <td class="p-3">vertical padding</td>
-      <td class="p-3 break-words"><span class="css-var">primitives.layout.size8</span></td>
+      <td class="p-3 break-words"><span title="copy to clipboard" class="css-var">primitives.layout.size8</span></td>
       <td class="p-3 font-bold">32</td>
     </tr>
 
@@ -161,12 +177,12 @@ The anatomy of the “Modal” component includes the following essential elemen
     </tr>
     <tr>
       <td class="p-3">vertical gap (between title & subtitle)</td>
-      <td class="p-3 break-words"><span class="css-var">primitives.layout.size1</span></td>
+      <td class="p-3 break-words"><span title="copy to clipboard" class="css-var">primitives.layout.size1</span></td>
       <td class="p-3 font-bold">4</td>
     </tr>
     <tr>
       <td class="p-3">vertical gap</td>
-      <td class="p-3 break-words"><span class="css-var">primitives.layout.size5</span></td>
+      <td class="p-3 break-words"><span title="copy to clipboard" class="css-var">primitives.layout.size5</span></td>
       <td class="p-3 font-bold">20</td>
     </tr>
 
@@ -238,7 +254,12 @@ The anatomy of the “Modal” component includes the following essential elemen
     <tr>
       <td class="p-3">corner-radius</td>
       <td class="p-3">
-        <span class="css-var">primitives.layout.cornerRadius4</span>
+        <span
+          title="copy to clipboard"
+          class="css-var"
+        >
+          primitives.layout.cornerRadius4
+        </span>
       </td>
       <td class="p-3 font-bold">16</td>
     </tr>
@@ -423,7 +444,7 @@ Follow these guidelines to ensure consistent, clear, and accessible usage of the
 ## UX tips
 
 <div class="rounded-3xl bg-[#bdf4e9] dark:bg-[#273d39] p-8">
-  <ol>
+  <ol class="pl-5">
     <li>
       <span class="font-bold">Clarity in Purpose:</span> Use modals to capture
       the user’s attention for specific tasks such as form submissions,
@@ -477,3 +498,4 @@ Follow these guidelines to ensure consistent, clear, and accessible usage of the
     efficient user experience across different contexts within an interface.
   </p>
 </div>
+<CopyToClipboard />
