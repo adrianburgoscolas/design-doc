@@ -19,31 +19,28 @@ const {
 const fullImageUrl = src.src || src;
 ---
 
-<div class="object-contain">
-  <button
-    class="image-trigger block w-full h-full"
-    data-image-url={fullImageUrl}
-    aria-label={`Ver imagen de ${alt} en tamaño completo`}
-  >
-    <Image
-      class:list={[
-        "w-full",
-        {
-          "rounded-3xl": rounded,
-        },
-        {
-          "hover:shadow-lg hover:scale-101 transition-all duration-300":
-            animate,
-        },
-      ]}
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      loading="lazy"
-    />
-    {caption && <p class="text-left text-xs">{caption}</p>}
-  </button>
+<div
+  class="image-trigger"
+  data-image-url={fullImageUrl}
+  aria-label={`Ver imagen de ${alt} en tamaño completo`}
+>
+  <Image
+    class:list={[
+      "w-full",
+      {
+        "rounded-3xl": rounded,
+      },
+      {
+        "hover:shadow-lg hover:scale-101 transition-all duration-300": animate,
+      },
+    ]}
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+  />
+  {caption && <p class="text-left text-xs">{caption}</p>}
 </div>
 <dialog
   class="image-modal"
@@ -109,7 +106,7 @@ const fullImageUrl = src.src || src;
     padding: 0;
     background: none;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     transition: transform 0.2s;
   }
 
