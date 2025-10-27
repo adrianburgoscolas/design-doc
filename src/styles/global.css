@@ -99,5 +99,5 @@ nav {
 }
 
 .card-grid {
-  @apply content-center justify-center items-center justify-items-center;
+  @apply justify-items-center;
 }
