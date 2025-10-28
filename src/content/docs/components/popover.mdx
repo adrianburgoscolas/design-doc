@@ -5,6 +5,7 @@ description: "Banners give users visibility to curations, promotions, events, an
 
 import { CardGrid, Icon } from "@astrojs/starlight/components";
 import ComponentCard from "../../../components/ComponentCard.astro";
+import ComponentState from "../../../components/ComponentState.astro";
 import CopyToClipboard from "../../../components/CopyToClipboard.astro";
 import PracticeCard from "../../../components/PracticeCard.astro";
 import ImageModal from "../../../components/ImageModal.astro";
@@ -37,6 +38,10 @@ import above_dont from "../../../assets/images/above_dont.webp";
 import buttons_dont from "../../../assets/images/buttons_dont.svg";
 import { Aside } from "@astrojs/starlight/components";
 
+<ComponentState state="issue found" />
+<br />
+<br />
+
 <div class="flex gap-4">
   <a class="cursor-pointer flex items-center gap-2">
     <Icon name="figma" />
@@ -50,7 +55,6 @@ import { Aside } from "@astrojs/starlight/components";
     <Icon name="storybook" />
     <span>Storybook</span>
   </a>
-  <span class="component-state">In Progress</span>
 </div>
 
 A popover is a transient UI component that displays contextual content in

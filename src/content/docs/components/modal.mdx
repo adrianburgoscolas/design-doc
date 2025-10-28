@@ -5,6 +5,7 @@ description: "A modal is an interactive window that appears on screen and blurs 
 
 import { CardGrid } from "@astrojs/starlight/components";
 import ComponentCard from "../../../components/ComponentCard.astro";
+import ComponentState from "../../../components/ComponentState.astro";
 import CopyToClipboard from "../../../components/CopyToClipboard.astro";
 import PracticeCard from "../../../components/PracticeCard.astro";
 import ImageModal from "../../../components/ImageModal.astro";
@@ -33,6 +34,10 @@ import above_dont from "../../../assets/images/above_dont.webp";
 import buttons_dont from "../../../assets/images/buttons_dont.svg";
 import { Aside, Icon } from "@astrojs/starlight/components";
 
+<ComponentState state="deployed" />
+<br />
+<br />
+
 <div class="flex gap-4">
   <a class="cursor-pointer flex items-center gap-2">
     <Icon name="figma" />
@@ -46,7 +51,6 @@ import { Aside, Icon } from "@astrojs/starlight/components";
     <Icon name="storybook" />
     <span>Storybook</span>
   </a>
-  <span class="css-var">Deployed</span>
 </div>
 
 A modal is an interactive window that appears on screen and blurs the background screen to focus the user’s attention on the modal’s action. For example, a modal can ask the user to confirm or cancel a choice.
