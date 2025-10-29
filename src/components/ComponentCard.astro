@@ -2,29 +2,53 @@
 import { Image } from "astro:assets";
 
 interface Props {
+  icon: ImageMetadata;
   image: ImageMetadata;
   title: string;
   slug: string;
   animate: boolean;
 }
 
-const { image, title, slug, animate = true } = Astro.props;
+const { image, title, slug, animate = true, icon } = Astro.props;
 ---
 
 <a
-  class="no-underline"
+  class="no-underline w-full h-70 flex flex-col"
   href=`${slug}`
 >
-  <Image
-    class:list={[
-      "max-w-100 rounded-3xl",
-      {
-        "hover:shadow-lg hover:scale-101 transition-all duration-300": animate,
-      },
-    ]}
-    src={image}
-    alt="components"
-  />
+  {
+    Boolean(image) && (
+      <Image
+        class:list={[
+          "rounded-3xl",
+          {
+            "hover:shadow-lg hover:scale-101 transition-all duration-300":
+              animate,
+          },
+        ]}
+        src={image}
+        alt="components"
+      />
+    )
+  }
+  {
+    Boolean(icon) && (
+      <div
+        class:list={[
+          "flex justify-center items-center grow rounded-3xl bg-[#F5F5F5] dark:bg-[#202733]",
+          {
+            "hover:shadow-lg hover:scale-101 transition-all duration-300":
+              animate,
+          },
+        ]}
+      >
+        <Image
+          src={icon}
+          alt="components"
+        />
+      </div>
+    )
+  }
   <div class="text-gray-700 dark:text-gray-500 font-semibold text-3xl">
     {title}
   </div>
