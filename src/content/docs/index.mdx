@@ -1,99 +1,102 @@
 ---
-title: Orion UI Library
-description: This is our design system that connects people with passions, and enables us to build great experiences for our customers.
+title: Driving digital excellence in HP eCommerce
+description: Welcome to the official documentation for Orion, the component library that unifies design, development, and user experience across HP’s digital commerce platforms.
 template: splash
 hero:
-  tagline: Orion UI Library defines the fundamentals of user interfaces across HP Store ecosystem of products and services.
+  tagline: Welcome to the official documentation for Orion, the component library that unifies design, development, and user experience across HP’s digital commerce platforms.
   image:
-    file: ../../assets/images/HP-logo.svg
+    file: ../../assets/images/stripes.svg
 ---
 
 import { CardGrid } from "@astrojs/starlight/components";
 import { Icon } from "@astrojs/starlight/components";
 
 import ComponentCard from "../../components/ComponentCard.astro";
+import ProcessHeroTitle from "../../components/ProcessHeroTitle.astro";
 
-import components from "../../assets/images/components.svg";
-import foundations from "../../assets/images/foundations.svg";
-import patterns from "../../assets/images/patterns.svg";
+import components from "../../assets/images/component.svg";
+import foundations from "../../assets/images/foundation.svg";
+import patterns from "../../assets/images/Patterns.svg";
 import templates from "../../assets/images/templates.svg";
 import resources from "../../assets/images/resources.svg";
 import support from "../../assets/images/support-ok.svg";
 
-import components_dark from "../../assets/images/components-dark.svg";
-import foundations_dark from "../../assets/images/foundation-dark.svg";
-import patterns_dark from "../../assets/images/pattern-dark.svg";
+import components_dark from "../../assets/images/component-dark.svg";
+import foundations_dark from "../../assets/images/foundations-dark.svg";
+import patterns_dark from "../../assets/images/Patterns-dark.svg";
 import templates_dark from "../../assets/images/templates-dark.svg";
-import resources_dark from "../../assets/images/resource-dark.svg";
+import resources_dark from "../../assets/images/resources-dark.svg";
 import support_dark from "../../assets/images/support-dark.svg";
 
 <div class="hidden dark:block">
-<CardGrid>
+<div class="grid grid-cols-1 tablet:grid-cols-2  laptop:grid-cols-3 gap-6">
   <ComponentCard
-    image={foundations_dark}
+    icon={foundations_dark}
     title="Foundations"
     slug="/components/overview"
-  />
+
+/>
+
   <ComponentCard
-    image={components_dark}
+    icon={components_dark}
     title="Components"
     slug="/components/overview"
   />
   <ComponentCard
-    image={patterns_dark}
+    icon={patterns_dark}
     title="Patterns"
     slug="/patterns/overview"
   />
   <ComponentCard
-    image={templates_dark}
+    icon={templates_dark}
     title="Templates"
     slug="/patterns/overview"
   />
   <ComponentCard
-    image={resources_dark}
+    icon={resources_dark}
     title="Resources"
     slug="/components/overview"
   />
   <ComponentCard
-    image={support_dark}
+    icon={support_dark}
     title="Support"
     slug="/patterns/overview"
   />
-</CardGrid>
+</div>
 </div>
 <div class="dark:hidden">
-<CardGrid>
+<div class="grid grid-cols-1 tablet:grid-cols-2  laptop:grid-cols-3 gap-6">
   <ComponentCard
-    image={foundations}
+    icon={foundations}
     title="Foundations"
     slug="/components/overview"
   />
   <ComponentCard
-    image={components}
+    icon={components}
     title="Components"
     slug="/components/overview"
   />
   <ComponentCard
-    image={patterns}
+    icon={patterns}
     title="Patterns"
     slug="/patterns/overview"
   />
   <ComponentCard
-    image={templates}
+    icon={templates}
     title="Templates"
     slug="/patterns/overview"
   />
   <ComponentCard
-    image={resources}
+    icon={resources}
     title="Resources"
     slug="/components/overview"
   />
   <ComponentCard
-    image={support}
+    icon={support}
     title="Support"
     slug="/patterns/overview"
   />
-</CardGrid>
+</div>
 </div>
 <br />
 <br />
@@ -170,6 +173,6 @@ import support_dark from "../../assets/images/support-dark.svg";
         </div>
       </div>
     </div>
-
   </div>
+  <ProcessHeroTitle />
 </div>
