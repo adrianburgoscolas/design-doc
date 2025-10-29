@@ -35,7 +35,7 @@
   @apply shadow-none hover:border-gray-400;
 }
 
-.sl-container {
+.sl-container:has(.hero) {
   @apply container mx-auto;
 }
 
