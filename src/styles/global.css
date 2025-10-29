@@ -10,16 +10,33 @@
   --breakpoint-tablet: 40rem;
   --breakpoint-laptop: 64rem;
   --breakpoint-desktop: 80rem;
+  --font-forma-djrui: "FormaDJRUI";
+}
+
+@font-face {
+  font-family: "FormaDJRUI";
+  src:
+    url("../../public/fonts/FormaDJRUI.woff2") format("woff2"),
+    url("../../public/fonts/FormaDJRUI-Italic.woff") format("woff"),
+    url("../../public/fonts/FormaDJRUI.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
 }
 
 :root {
   --sl-color-accent: #024AD8;
+  --sl-font-sans: 'FormaDJRUI', var(--sl-font-sans);
   scrollbar-gutter: stable;
 
 }
 
 .pagination-links>a {
   @apply shadow-none hover:border-gray-400;
+}
+
+.sl-container {
+  @apply container mx-auto;
 }
 
 header {
