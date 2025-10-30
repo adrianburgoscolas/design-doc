@@ -10,16 +10,6 @@
   --breakpoint-tablet: 40rem;
   --breakpoint-laptop: 64rem;
   --breakpoint-desktop: 80rem;
-<<<<<<< Updated upstream
-}
-
-:root {
-  --sl-color-accent: #024AD8;
-  scrollbar-gutter: stable;
-
-}
-
-=======
 }
 
 :root {
@@ -40,7 +30,6 @@
   font-style: normal;
 }
 
->>>>>>> Stashed changes
 .pagination-links>a {
   @apply shadow-none hover:border-gray-400;
 }
