@@ -124,7 +124,7 @@ site-search {
   }
 
   &>button {
-    @apply rounded-full pr-4;
+    @apply rounded-full pr-2;
   }
 }
 
