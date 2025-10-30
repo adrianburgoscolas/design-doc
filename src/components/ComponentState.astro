@@ -11,8 +11,9 @@ const { state } = Astro.props;
 ---
 
 <span
+  id="component-state"
   class:list={[
-    "capitalize rounded-sm px-1.5 py-0.5 text-[14px]",
+    "hidden capitalize rounded-sm px-1.5 py-1 text-[14px]",
     {
       "bg-[#DCFCE7] border border-[#4ADE80] text-[#15803D]":
         state === "deployed",
@@ -33,5 +34,15 @@ const { state } = Astro.props;
       "bg-[#F3F4F6] border border-[#64748B] text-[#475569]":
         state === "deprecated",
     },
-  ]}>{state}</span
+  ]}
 >
+  {state}
+</span>
+
+<script>
+  const title = document.querySelector("#_top") as HTMLHtmlElement;
+  const tag = document.querySelector("#component-state") as HTMLHtmlElement;
+  title.classList.add("flex", "gap-6", "justify-start", "items-center");
+  title.appendChild(tag);
+  (title.childNodes[1] as HTMLHtmlElement).classList.remove("hidden");
+</script>
