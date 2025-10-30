@@ -6,12 +6,14 @@ description: "Components are reusable pieces of code that serve as specific user
 import { CardGrid } from "@astrojs/starlight/components";
 
 import ComponentCard from "../../../components/ComponentCard.astro";
+import HideTableOfContent from "../../../components/HideTableOfContent.astro";
 import modal from "../../../assets/images/modal.webp";
 import popover from "../../../assets/images/popover.webp";
 import card from "../../../assets/images/card.avif";
 
 Components are reusable pieces of code that serve as specific user interface elements or functions.
 
+<HideTableOfContent />
 <CardGrid>
   <ComponentCard
     image={modal}
