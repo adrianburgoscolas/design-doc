@@ -117,3 +117,32 @@ nav {
 .card-grid {
   @apply justify-items-center;
 }
+
+site-search {
+  & kbd {
+    @apply rounded-full px-1;
+  }
+
+  &>button {
+    @apply rounded-full pr-4;
+  }
+}
+
+.pagefind-ui__result-nested:hover {
+  @apply outline-none bg-[#E4EEFA];
+}
+
+.pagefind-ui__result-title:hover {
+  @apply outline-none bg-[#E4EEFA];
+}
+
+.pagefind-ui__result-inner {
+  @apply gap-0;
+}
+
+.pagefind-ui__result-inner>.pagefind-ui__result-title:before {
+  background: transparent;
+  content: "❖";
+  margin-top: 12px;
+  mask: none;
+}
