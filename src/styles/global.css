@@ -52,7 +52,7 @@ header {
   }
 
   & dialog {
-    @apply border border-white/40 bg-[#aaaaaa]/40 backdrop-blur-sm rounded-3xl;
+    @apply bg-white rounded-3xl;
   }
 }
 
@@ -141,8 +141,17 @@ site-search {
 }
 
 .pagefind-ui__result-inner>.pagefind-ui__result-title:before {
-  background: transparent;
   content: "❖";
+  background-color: transparent;
   margin-top: 12px;
   mask: none;
+
+  &:hover {
+    background-color: #E4EEFA;
+  }
+}
+
+
+select svg {
+  @apply hidden;
 }
